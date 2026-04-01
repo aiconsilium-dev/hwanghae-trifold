@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>법무법인 더 에이치 황해 — 트라이폴드 브로슈어 와이어프레임 v2</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 14px; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  h1.page-title { font-size: 1.4rem; margin-bottom: 8px; text-align: center; }
+  .face-label { font-size: 1.1rem; font-weight: 700; margin: 24px 0 8px; padding: 6px 0; border-bottom: 2px solid #000; }
+  .face-row {
+    display: flex;
+    border: 1px solid #999;
+    min-height: 540px;
+  }
+  .panel {
+    flex: 1 1 0;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .panel + .panel { border-left: 2px dashed #aaa; }
+  .panel-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #666;
+    background: #f5f5f5;
+    padding: 2px 6px;
+    margin: -14px -14px 10px -14px;
+    border-bottom: 1px solid #ccc;
+  }
+  .panel h2 { font-size: 1.1rem; margin-bottom: 6px; }
+  .panel h3 { font-size: 0.95rem; margin: 8px 0 4px; }
+  .panel p, .panel li { font-size: 0.82rem; }
+  .panel ul { padding-left: 16px; margin-bottom: 6px; }
+  .panel li { margin-bottom: 2px; }
+
+  .placeholder {
+    border: 2px dashed #bbb;
+    background: #f9f9f9;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 8px;
+    margin: 6px 0;
+  }
+  .placeholder.logo { height: 50px; }
+  .placeholder.qr { height: 70px; width: 70px; }
+  .placeholder.map { height: 60px; }
+  .placeholder.screenshot { height: 60px; }
+
+  .stat-big { font-size: 1.3rem; font-weight: 800; margin: 4px 0; }
+  .stat-row { display: flex; gap: 8px; margin: 8px 0; }
+  .stat-box { flex: 1; border: 1px solid #ccc; padding: 6px; text-align: center; }
+  .stat-box .num { font-size: 1rem; font-weight: 800; }
+  .stat-box .label { font-size: 0.7rem; color: #555; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 6px 0; }
+  th { background: #e9ecef; font-weight: 600; }
+  th, td { border: 1px solid #ccc; padding: 3px 5px; text-align: center; }
+
+  .bottom-note {
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+    right: 14px;
+    font-size: 0.75rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    padding-top: 4px;
+  }
+
+  .sub-section { margin: 6px 0; padding: 6px; border: 1px solid #e0e0e0; }
+  .sub-section h3 { font-size: 0.85rem; margin-bottom: 4px; }
+
+  .case-highlight {
+    display: flex;
+    gap: 4px;
+    margin: 4px 0;
+    font-size: 0.78rem;
+  }
+  .case-highlight .arrow { color: #888; }
+
+  /* 인쇄 CSS */
+  @media print {
+    body { padding: 0; }
+    .face-label { page-break-before: auto; }
+    .face-row {
+      width: 297mm;
+      height: 210mm;
+      min-height: 210mm;
+      max-height: 210mm;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    .page-title, .face-label { margin-top: 0; }
+    @page { size: A4 landscape; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">법무법인 더 에이치 황해 — 트라이폴드 브로슈어 와이어프레임 v2</h1>
+
+<!-- ===== 바깥면 ===== -->
+<div class="face-label">바깥면 (접었을 때 보이는 면) — 패널 A · B · C</div>
+<div class="face-row">
+
+  <!-- 패널 A — 접힌면 -->
+  <div class="panel">
+    <span class="panel-label">패널 A — 접힌면 (열면 첫 번째로 보임)</span>
+    <h2>아파트 토탈 서비스</h2>
+    <p>하자소송 종결 후 단지 종합 관리 솔루션</p>
+
+    <div class="sub-section">
+      <h3>🏢 아파트 집사 <span style="font-weight:400;font-size:0.75rem;">(관리사무소/입대의용 AI)</span></h3>
+      <ul>
+        <li><strong>AI 법률 상담</strong> — 24시간 하자 관련 법률 질의응답</li>
+        <li><strong>하자보수 자동 분류</strong> — AI가 사진·설명 기반으로 하자 유형 자동 분류</li>
+        <li><strong>서류 자동화</strong> — 채권양도동의서, 소장, 위임장 자동 생성</li>
+        <li><strong>입주민 민원 관리</strong> — 민원 접수·추적·응답 일원화</li>
+        <li><strong>관리비 투명화</strong> — 소송 비용·배상금 정산 대시보드</li>
+      </ul>
+    </div>
+
+    <div class="sub-section">
+      <h3>👤 집변 <span style="font-weight:400;font-size:0.75rem;">(입주민 개인용 AI)</span></h3>
+      <ul>
+        <li>개인 하자접수 → AI 분류 → 보상금 예측</li>
+        <li>법률 상담 챗봇</li>
+        <li>내 소송 진행상황 실시간 추적</li>
+        <li>서류 안내 및 다운로드</li>
+      </ul>
+    </div>
+
+    <div style="display:flex;gap:8px;">
+      <div class="placeholder screenshot" style="flex:1;">아파트 집사<br>스크린샷</div>
+      <div class="placeholder screenshot" style="flex:1;">집변<br>스크린샷</div>
+    </div>
+  </div>
+
+  <!-- 패널 B — 뒷표지 -->
+  <div class="panel">
+    <span class="panel-label">패널 B — 뒷표지 (접었을 때 뒤)</span>
+    <h2>법무법인 더 에이치 황해</h2>
+
+    <p style="margin-top:8px;"><strong>주소</strong><br>인천 미추홀구 학익로 60</p>
+    <p style="margin-top:6px;"><strong>전화</strong><br>032-251-1000</p>
+    <p style="margin-top:6px;"><strong>웹사이트</strong><br>lawfirmthe-h.com</p>
+    <p style="margin-top:6px;"><strong>집단소송</strong><br>classaction.lawfirmthe-h.com</p>
+
+    <div style="display:flex;gap:12px;margin-top:12px;align-items:flex-start;">
+      <div class="placeholder qr">QR코드<br>classaction.<br>lawfirmthe-h.com</div>
+      <div class="placeholder map" style="flex:1;height:70px;">약도<br>(인천 미추홀구 학익로 60)</div>
+    </div>
+
+    <div class="bottom-note" style="text-align:center;font-weight:600;">
+      "소송에 강한 로펌이 합의에도 강합니다."
+    </div>
+  </div>
+
+  <!-- 패널 C — 앞표지 -->
+  <div class="panel">
+    <span class="panel-label">패널 C — 앞표지 ★ (접었을 때 맨 앞)</span>
+
+    <div class="placeholder logo" style="margin-top:10px;">로고 이미지</div>
+
+    <h2 style="font-size:1.3rem;margin-top:12px;text-align:center;">법무법인 더 에이치 황해</h2>
+    <p style="text-align:center;font-size:0.9rem;margin-top:4px;">아파트 하자소송의 새로운 기준</p>
+
+    <div class="stat-row" style="margin-top:16px;">
+      <div class="stat-box">
+        <div class="num">3,303억</div>
+        <div class="label">판결금 누적</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">89,087</div>
+        <div class="label">동의세대</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">371만</div>
+        <div class="label">세대당 평균<br>(업계 평균 2배)</div>
+      </div>
+    </div>
+
+    <div class="bottom-note" style="text-align:center;">
+      032-251-1000 &nbsp;|&nbsp; lawfirmthe-h.com
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 안쪽면 ===== -->
+<div class="face-label">안쪽면 (펼쳤을 때 보이는 면) — 패널 D · E · F</div>
+<div class="face-row">
+
+  <!-- 패널 D — 안쪽 왼쪽 -->
+  <div class="panel">
+    <span class="panel-label">패널 D — 안쪽 왼쪽</span>
+    <h2>법무법인 더 에이치 황해 소개</h2>
+
+    <p style="margin:6px 0;"><strong>설립 2004년</strong> — 22년 역사</p>
+    <p><strong>원스톱 대응 조직</strong><br>변호사 + 하자기술팀 + 단지관리팀 + 전문자문위원</p>
+    <p style="margin-top:4px;"><strong>규모:</strong> 변호사 17명, 임직원 64명, 건설전문변호사 6인</p>
+
+    <div class="sub-section" style="margin-top:8px;">
+      <h3>대표 천상현 변호사</h3>
+      <ul>
+        <li>서울대 법대 졸업 (1987)</li>
+        <li>제35회 사법시험 합격 (1993)</li>
+        <li>사법연수원 25기 수료 (1996)</li>
+        <li>대한변호사협회 등록 건설 분야 전문 변호사</li>
+        <li>前 법무법인(유) 광장 Lee&amp;Ko</li>
+        <li>30년 경력</li>
+      </ul>
+    </div>
+
+    <p style="margin-top:6px;"><strong>국내 최고 수준의 기술자문단</strong></p>
+    <p style="margin-top:4px;"><strong>전문분야:</strong> 하자소송, 집단소송, 등기관리, 재개발·재건축</p>
+  </div>
+
+  <!-- 패널 E — 안쪽 가운데 -->
+  <div class="panel">
+    <span class="panel-label">패널 E — 안쪽 가운데</span>
+    <h2>압도적인 판결 실적</h2>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="num">3,303억</div>
+        <div class="label">판결금 누적</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">89,087</div>
+        <div class="label">동의세대</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="num">371만</div>
+        <div class="label">세대당 평균</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">2배</div>
+        <div class="label">업계 평균 대비</div>
+      </div>
+    </div>
+
+    <h3>대표 판결 사례</h3>
+    <table>
+      <thead>
+        <tr><th>단지명</th><th>세대수</th><th>판결금</th><th>세대당</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>구월 힐스테이트 롯데캐슬</td><td>8,934</td><td>517억</td><td>578만</td></tr>
+        <tr><td>DMC 파크뷰 자이</td><td>4,300</td><td>140억</td><td>357만</td></tr>
+        <tr><td>가좌 한신휴플러스</td><td>2,276</td><td>110억</td><td>483만</td></tr>
+        <tr><td>춘천 LH 해온채</td><td>560</td><td>50억</td><td>905만</td></tr>
+        <tr><td>구래역 화성파크드림</td><td>820</td><td>58억</td><td>750만</td></tr>
+        <tr><td>어등산 대방노블랜드</td><td>572</td><td>41억</td><td>720만</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:8px;">진행 중 대형 단지</h3>
+    <p style="font-size:0.78rem;">
+      헬리오시티(9,510세대), 고덕그라시움(4,932), 안양메가트리안(4,250), 포레스티아(4,089), 그랑시티자이(3,728) 등
+    </p>
+  </div>
+
+  <!-- 패널 F — 안쪽 오른쪽 -->
+  <div class="panel">
+    <span class="panel-label">패널 F — 안쪽 오른쪽</span>
+    <h2>누락·특수 하자소송</h2>
+    <p style="font-size:0.85rem;font-weight:600;">추가 배상금 확보</p>
+    <p style="font-size:0.78rem;margin:4px 0;color:#333;">"최고의 기술력으로 다른 로펌이 놓친 하자를 발굴하여 추가 배상금을 확보합니다"</p>
+
+    <h3>누락 하자소송 사례</h3>
+    <table>
+      <thead>
+        <tr><th>단지명</th><th>다른 로펌</th><th>황해 추가</th><th>총합</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>한라비발디캠퍼스2차</td><td>40억</td><td>85억</td><td>125억</td></tr>
+        <tr><td>갈매역 아이파크</td><td>24억</td><td>30억</td><td>54억</td></tr>
+        <tr><td>가좌 두산위브트레지움</td><td>34억</td><td>35억</td><td>69억</td></tr>
+      </tbody>
+    </table>
+
+    <h3>특수 하자 유형</h3>
+    <table>
+      <thead>
+        <tr><th>유형</th><th>세대당 추가</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>방화문 성능미달</td><td>약 167만원</td></tr>
+        <tr><td>건식석재 꽂임촉</td><td>60~190만원</td></tr>
+        <tr><td>스프링클러 통배관</td><td>약 492만원</td></tr>
+        <tr><td>외벽균열</td><td>약 70만원</td></tr>
+      </tbody>
+    </table>
+
+    <h3>합의 실적</h3>
+    <p style="font-size:0.78rem;">소제기 전 합의 완료 다수<br>롯데건설, KCC건설, 코오롱글로벌, 디엘이앤씨, 포스코건설, 현대산업개발 등</p>
+  </div>
+
+</div>
+
+</body>
+</html>
